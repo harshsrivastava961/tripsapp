@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Alert, ActivityIndicator } from 'react-native';
+import { goToTabs } from './Navigation';
 import firebase from '../database/firebase';
+
 const { Navigation } = require('react-native-navigation');
 
 export default class Login extends Component {
-  
+
   constructor() {
     super();
-    this.state = { 
-      email: '', 
+    this.state = {
+      email: '',
       password: '',
       isLoading: false
     }
@@ -19,67 +21,56 @@ export default class Login extends Component {
     this.setState(state);
   }
   userLogin = () => {
-    if(this.state.email === '' && this.state.password === '') {
+    if (this.state.email === '' && this.state.password === '') {
       Alert.alert('Enter details to signin!')
     } else {
       this.setState({
         isLoading: true,
       })
+
       firebase
-      .auth()
-      .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .then((res) => {
-        console.log(res)
-        console.log('User logged-in successfully!')
-        this.setState({
-          isLoading: false,
-          email: '', 
-          password: ''
-        })
-       Navigation.push(this.props.componentId, {
-        component: {
-          name: 'DashBoard',
-          options: {
-            topBar: {
-              title: {
-                text: 'DashBoard'
+        .auth()
+        .signInWithEmailAndPassword(this.state.email, this.state.password)
+        .then((res) => {
+
+          console.log(res)
+          console.log('User logged-in successfully!')
+          this.setState({
+            isLoading: false,
+            email: '',
+            password: ''
+          })
+          goToTabs();
+          Navigation.push(this.props.componentId, {
+            component: {
+              name: 'DashBoard',
+              options: {
+                topBar: {
+                  title: {
+                    text: 'DashBoard'
+                  }
+                }
               }
             }
-          }
-        }
-      })
-      
-      })
-      .catch(error => this.setState({ errorMessage: error.message }))
+          })
+
+        })
+        .catch(error => this.setState({ errorMessage: error.message }))
     }
   }
-  renderHeader = () => {
 
-    return (
-      <View style={styles.header_footer_style}>
-        <Text style={styles.textStyle}> This is Header </Text>
-      </View>
-    );
-  };
-  renderFooter = () => {
-
-    return (
-      <View style={styles.header_footer_style}>
-        <Text style={styles.textStyle}> This is Footer </Text>
-      </View>
-    );
-  };
   render() {
-    if(this.state.isLoading){
-      return(
+
+    if (this.state.isLoading) {
+      return (
         <View style={styles.preloader}>
-          <ActivityIndicator size="large" color="#9E9E9E"/>
+          <ActivityIndicator size="large" color="#9E9E9E" />
         </View>
       )
-    }   
+    }
     return (
-      <View style={styles.container}>  
-      <Text style={styles.headingText}> Login Screen </Text>
+      <View style={styles.container}>
+        <Text style={styles.headingText}> Login Screen </Text>
         <TextInput
           style={styles.inputStyle}
           placeholder="Email"
@@ -93,15 +84,14 @@ export default class Login extends Component {
           onChangeText={(val) => this.updateInputVal(val, 'password')}
           maxLength={15}
           secureTextEntry={true}
-        />   
+        />
         <Button
           color="#3740FE"
           title="Signin"
-         onPress={() => this.userLogin()}
-        />   
-        <Button
-          title='Signup'
-          color='orange'
+          onPress={() => this.userLogin()}
+        />
+        <Text
+          style={styles.loginText}
           onPress={() => Navigation.push(this.props.componentId, {
             component: {
               name: 'Signup',
@@ -113,12 +103,29 @@ export default class Login extends Component {
                 }
               }
             }
-          })}/>                 
+          })}>
+          Don't have account? Click here to signup
+        </Text>
       </View>
     );
   }
- 
+
 }
+Navigation.setDefaultOptions({
+  statusBar: {
+    backgroundColor: 'orange'
+  },
+  topBar: {
+    title: {
+      color: 'white',
+      text: 'Welcome'
+    },
+
+    background: {
+      color: 'orange'
+    }
+  }
+});
 
 
 const styles = StyleSheet.create({

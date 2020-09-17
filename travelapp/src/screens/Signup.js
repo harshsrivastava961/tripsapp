@@ -74,9 +74,9 @@ export default class Signup extends Component {
         title: {
           color: 'white'
         },
-        backButton: {
+        /*backButton: {
           color: 'black'
-        },
+        },*/
         background: {
           color: 'orange'
         }

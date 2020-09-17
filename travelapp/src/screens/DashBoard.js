@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
 import firebase from '../database/firebase';
-import Carousel from 'react-native-snap-carousel';
+
+
 const { Navigation } = require('react-native-navigation');
-import { goToTabs } from './Navigation'
+
 
 export default class Dashboard extends Component {
   constructor() {
@@ -12,26 +13,28 @@ export default class Dashboard extends Component {
       uid: ''
     }
   }
-  componentDidMount() {
-    try {
-      console.log('user: ', user)
-      if (user) {
-        goDashBoard()
-      } else {
-        goToTabs()
-      }
-    } catch (err) {
-      console.log('error: ', err)
-      goToTabs()
-    }
-  }
-
+  
   signOut = () => {
     firebase.auth().signOut().then(() => {
-      this.props.navigation.navigate('Login')
+     this.props.navigation.navigate('Login')
+     Navigation.push(this.props.componentId, {
+      component: {
+        name: 'Login',
+        options: {
+          topBar: {
+            title: {
+              text: 'Login'
+            }
+          }
+        }
+      }
+    })
+    
     })
     .catch(error => this.setState({ errorMessage: error.message }))
   }  
+
+ 
   renderItem = ({item, index}) => {
     return (
         <View style={styles.slide}>
@@ -39,27 +42,12 @@ export default class Dashboard extends Component {
         </View>
     );
   }
- render () {
-   return (
-      <SafeAreaView style={styles.mainconatiner}>
-        <View styles={styles.container}>
-        <Carousel
-        layout={"default"}
-          ref={ref => this.carousel = ref }
-          data={this.state.carouselItems}
-          sliderWidth={500}
-          renderItem={500}
-          itemItem={this.image}
-          onSnapToItem={index => this.setState({interval: index})}
-        />
-        </View>
-        </SafeAreaView>
-    );
-  }
+ 
   render() {
     this.state = { 
       displayName: firebase.auth().currentUser.displayName,
-      uid: firebase.auth().currentUser.uid
+      uid: firebase.auth().currentUser.uid,
+      
     }    
     return (
       <View style={styles.container}>
@@ -75,6 +63,23 @@ export default class Dashboard extends Component {
     );
   }
 }
+Navigation.setDefaultOptions({
+  statusBar: {
+    backgroundColor: 'orange'
+  },
+  topBar: {
+    title: {
+      color: 'white'
+    },
+    /*backButton: {
+      color: 'black'
+    },*/
+    background: {
+      color: 'orange'
+    }
+  }
+});
+
 
 
 const styles = StyleSheet.create({

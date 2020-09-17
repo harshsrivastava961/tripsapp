@@ -1,21 +1,53 @@
-const React = require('react');
-const { View, Text, StyleSheet } = require('react-native');
+import React, { Component } from 'react';
+import { View, Text, FlatList, Image, Dimensions, StyleSheet } from 'react-native';
+
+const { width } = Dimensions.get('window');
+const base_width = width / 1;
+
+const images = [
+  {
+    id: 1,
+    src: require('../assets/im2.jpg')
+  },
+  {
+    id: 2,
+    src: require('../assets/im3.jpg')
+  },
+  {
+    id: 3,
+    src: require('../assets/im4.jpg')
+  },
+];
 
 
-const Offers = () => {
+export default class Offers extends Component {
+
+	render() {
+		return (
+			<View style={styles.container}>
+        <FlatList
+          data={images}
+          keyExtractor={(item, index) => item.id.toString()}
+          numColumns={1}
+          renderItem={this.renderImage}
+        />
+			</View>
+		);
+	}
+  
+
+  renderImage = ({ item }) => {
     return (
-      <View style={styles.root}>
-        <Text>Offers Screen</Text>
-      </View>
+      <Image
+        source={item.src}
+        style={{width: base_width, height: 250}}
+      />
     );
   }
+}
 
-  export default Offers;
-  const styles = StyleSheet.create({
-    root: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: 'white'
-    }
-  });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  }
+});
