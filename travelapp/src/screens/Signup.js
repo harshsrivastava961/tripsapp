@@ -56,8 +56,6 @@ export default class Signup extends Component {
       .catch(error => this.setState({ errorMessage: error.message }))      
     }
   }
-  
-
   render() {
     if(this.state.isLoading){
       return(
@@ -74,9 +72,6 @@ export default class Signup extends Component {
         title: {
           color: 'white'
         },
-        /*backButton: {
-          color: 'black'
-        },*/
         background: {
           color: 'orange'
         }
@@ -109,7 +104,6 @@ export default class Signup extends Component {
           title="Signup"
           onPress={() => this.registerUser()}
         />
-
         <Text 
           style={styles.loginText}
          onPress={() => Navigation.push(this.props.componentId, {

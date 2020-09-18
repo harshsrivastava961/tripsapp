@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Button } from 'react-native';
+import { StyleSheet, View, Text, Button, Image } from 'react-native';
 import firebase from '../database/firebase';
-
+import {goToDrawer} from './Navigation';
+import Header from '../components/Header'
 
 const { Navigation } = require('react-native-navigation');
-
-
 export default class Dashboard extends Component {
+  
   constructor() {
     super();
     this.state = { 
       uid: ''
     }
+    
   }
-  
   signOut = () => {
     firebase.auth().signOut().then(() => {
      this.props.navigation.navigate('Login')
@@ -33,8 +33,6 @@ export default class Dashboard extends Component {
     })
     .catch(error => this.setState({ errorMessage: error.message }))
   }  
-
- 
   renderItem = ({item, index}) => {
     return (
         <View style={styles.slide}>
@@ -42,7 +40,7 @@ export default class Dashboard extends Component {
         </View>
     );
   }
- 
+  
   render() {
     this.state = { 
       displayName: firebase.auth().currentUser.displayName,
@@ -50,9 +48,10 @@ export default class Dashboard extends Component {
       
     }    
     return (
+      
       <View style={styles.container}>
-        <Text style = {styles.textStyle}>
-          Hello, {this.state.displayName}
+        <Header/>
+                <Text style = {styles.textStyle}>Hello, {this.state.displayName}
         </Text>
         <Button
           color="#3740FE"
@@ -63,24 +62,6 @@ export default class Dashboard extends Component {
     );
   }
 }
-Navigation.setDefaultOptions({
-  statusBar: {
-    backgroundColor: 'orange'
-  },
-  topBar: {
-    title: {
-      color: 'white'
-    },
-    /*backButton: {
-      color: 'black'
-    },*/
-    background: {
-      color: 'orange'
-    }
-  }
-});
-
-
 
 const styles = StyleSheet.create({
   container: {

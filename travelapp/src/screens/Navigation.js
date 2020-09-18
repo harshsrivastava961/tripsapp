@@ -3,13 +3,15 @@ import MyTrips from './MyTrips';
 import Offers from './Offers';
 import TripIdeas from './TripIdeas';
 import Wallet from './Wallet';
-import DashBoard from './DashBoard'
+import DashBoard from './DashBoard';
+import Drawer from './Drawer';
 
 Navigation.registerComponent(`MyTrips`, () => MyTrips);
 Navigation.registerComponent(`Offers`, () => Offers);
 Navigation.registerComponent(`TripIdeas`, () => TripIdeas);
 Navigation.registerComponent(`Wallet`, () => Wallet);
 Navigation.registerComponent(`DashBoard`, () => DashBoard);
+Navigation.registerComponent(`Drawer`, () => Drawer);
 
 
 export const goToTabs = () => {
@@ -84,24 +86,20 @@ export const goToTabs = () => {
   })
 }
 export const goToDrawer = () => {
-  Navigation.setRoot({
-    root: {
-      sideMenu: {
-        id: 'SideMenuMain',
-        children: [
-          {
-            component: {
-              name: "Profile",
-              options: {
-                sideMenu: {
-                  fontSize: 11,
-                  text: 'Profile',
-                }
-              },
-            }
-          },
-        ]
-      }
+  RNNDrawer.showDrawer({
+    component: {
+      name: "Drawer",
+      passProps: {
+        direction: "left",
+        dismissWhenTouchOutside: true,
+        fadeOpacity: 0.5,
+        drawerScreenWidth: "70%" || 450, 
+        drawerScreenHeight: "100%" || 680,
+        style: { 
+          backgroundColor: "orange",
+        },
+      },
     }
-  })
+  });
+  RNNDrawer.dismissDrawer();
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet } from 'react-native';
 
-const news_items = [
+const place_items = [
   {
     id: 1,
     title: 'Jaipur',
@@ -28,7 +28,7 @@ export default class MyTrips extends Component {
 			<View style={styles.container}>
 
         <FlatList
-          data={news_items}
+          data={place_items}
           keyExtractor={(item, index) => item.id.toString()}
           renderItem={this.renderItem}
         />
@@ -39,15 +39,15 @@ export default class MyTrips extends Component {
 
   renderItem = ({ item }) => {
     return (
-      <TouchableOpacity onPress={this.goToNews}>
-        <View style={styles.news_item}>
-          <View style={styles.news_text}>
+      <TouchableOpacity onPress={this.goToPlace}>
+        <View style={styles.place_item}>
+          <View style={styles.place_text}>
             <View style={styles.text_container}>
                 <Text style={styles.title}>{item.title}</Text>
                 <Text>{item.summary}</Text>
             </View>
           </View>
-          <View style={styles.news_photo}>
+          <View style={styles.place_photo}>
             <Image source={item.image} style={styles.photo} />
           </View>
         </View>
@@ -57,7 +57,7 @@ export default class MyTrips extends Component {
   //
 
 
-  goToNews = () => {
+  goToPlace = () => {
 
   }
 }
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1
   },
-  news_item: {
+  place_item: {
     flex: 1,
     flexDirection: 'row',
     paddingRight: 20,
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#E4E4E4'
   },
-  news_text: {
+  place_text: {
     flex: 2,
     flexDirection: 'row',
     padding: 15
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     color: '#000',
     fontFamily: 'georgia'
   },
-  news_photo: {
+  place_photo: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'

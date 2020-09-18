@@ -27,7 +27,7 @@ export default class Login extends Component {
       this.setState({
         isLoading: true,
       })
-
+      
       firebase
         .auth()
         .signInWithEmailAndPassword(this.state.email, this.state.password)
@@ -38,9 +38,10 @@ export default class Login extends Component {
           this.setState({
             isLoading: false,
             email: '',
-            password: ''
+            password: '',
+            
           })
-          goToTabs();
+        // goToTabs();
           Navigation.push(this.props.componentId, {
             component: {
               name: 'DashBoard',
@@ -53,14 +54,12 @@ export default class Login extends Component {
               }
             }
           })
-
         })
         .catch(error => this.setState({ errorMessage: error.message }))
     }
   }
 
   render() {
-
     if (this.state.isLoading) {
       return (
         <View style={styles.preloader}>
@@ -109,7 +108,6 @@ export default class Login extends Component {
       </View>
     );
   }
-
 }
 Navigation.setDefaultOptions({
   statusBar: {
@@ -126,8 +124,6 @@ Navigation.setDefaultOptions({
     }
   }
 });
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
