@@ -1,4 +1,6 @@
 import { Navigation } from 'react-native-navigation';
+import { RNNDrawer } from "react-native-navigation-drawer-extension";
+
 import MyTrips from './MyTrips';
 import Offers from './Offers';
 import TripIdeas from './TripIdeas';
@@ -11,7 +13,7 @@ Navigation.registerComponent(`Offers`, () => Offers);
 Navigation.registerComponent(`TripIdeas`, () => TripIdeas);
 Navigation.registerComponent(`Wallet`, () => Wallet);
 Navigation.registerComponent(`DashBoard`, () => DashBoard);
-Navigation.registerComponent(`Drawer`, () => Drawer);
+Navigation.registerComponent(`Drawer`, () => RNNDrawer.create(Drawer));
 
 
 export const goToTabs = () => {
@@ -92,11 +94,11 @@ export const goToDrawer = () => {
       passProps: {
         direction: "left",
         dismissWhenTouchOutside: true,
-        fadeOpacity: 0.5,
-        drawerScreenWidth: "70%" || 450, 
-        drawerScreenHeight: "100%" || 680,
+        fadeOpacity: 0.7,
+        drawerScreenWidth: "60%" || 445, 
+        drawerScreenHeight: "100%" || 700,
         style: { 
-          backgroundColor: "orange",
+          backgroundColor: "white",
         },
       },
     }

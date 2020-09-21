@@ -41,7 +41,7 @@ export default class Login extends Component {
             password: '',
             
           })
-        // goToTabs();
+        goToTabs();
           Navigation.push(this.props.componentId, {
             component: {
               name: 'DashBoard',
