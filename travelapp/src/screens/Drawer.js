@@ -1,50 +1,60 @@
-import React, { Component } from 'react';
-import { View, Text, StyleSheet,Button } from 'react-native';
 const { Navigation } = require('react-native-navigation');
+const React = require('react');
+const { View, Text, Button, StyleSheet } = require('react-native');
+import {goToDrawerScreen} from './Navigation';
 
-const Drawer = () => {
+const Drawer = (props) => {
     return (
+      goToDrawerScreen(),
       <View style={styles.root}>
-        <Text style={styles.Header}>Welcome,</Text>
-        <Text style={styles.textStyle}
-          onPress={() => Navigation.push(this.props.componentId, {
-            component: {
-              name: 'Profile',
-              options: {
-                topBar: {
-                  title: {
-                    text: 'Profile'
-                  }
+       <Text style={styles.Header}>Welcome,</Text>
+       <Button
+        title='Settings'
+        color='#710ce3'
+        onPress={() => Navigation.push(props.componentId, {
+          component: {
+            name: 'Settings',
+            options: {
+              topBar: {
+                title: {
+                  text: 'Settings'
                 }
               }
             }
-          })}>
-          Profile
-        </Text>
-        <Text
-        style={styles.textStyle}
-          onPress={() => Navigation.push(this.props.componentId, {
-            component: {
-              name: 'Settings',
-              options: {
-                topBar: {
-                  title: {
-                    text: 'Settings'
-                  }
+          }
+        })}/>
+        <Button
+        title='Profile'
+        color='#710ce3'
+        onPress={() => Navigation.push(props.componentId, {
+          component: {
+            name: 'Profile',
+            options: {
+              topBar: {
+                title: {
+                  text: 'Profile'
                 }
               }
             }
-          })}>
-          Settings
-        </Text>
-        <Text
-        style={styles.textStyle}
-         onPress={() => Navigation.push(this.signOut())}>
-          LogOut
-        </Text>
+          }
+        })}/>
       </View>
     );
   }
+
+  Navigation.setDefaultOptions({
+    topBar: {
+      title: {
+        color: 'white'
+      },
+      backButton: {
+        color: 'black'
+      },
+      background: {
+        color: 'orange'
+      }
+    }
+  });
 
   export default Drawer;
   const styles = StyleSheet.create({
@@ -53,11 +63,11 @@ const Drawer = () => {
       backgroundColor: 'white',
     },
      textStyle: {
-          fontSize: 25,
+          fontSize: 20,
           paddingTop: 20
       },
       Header: {
-        fontSize: 30,
+        fontSize: 20,
         backgroundColor: 'orange'
     }
   });

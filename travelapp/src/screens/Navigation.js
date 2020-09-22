@@ -7,6 +7,8 @@ import TripIdeas from './TripIdeas';
 import Wallet from './Wallet';
 import DashBoard from './DashBoard';
 import Drawer from './Drawer';
+import Settings from './Settings';
+import Profile from './Profile'
 
 Navigation.registerComponent(`MyTrips`, () => MyTrips);
 Navigation.registerComponent(`Offers`, () => Offers);
@@ -14,6 +16,8 @@ Navigation.registerComponent(`TripIdeas`, () => TripIdeas);
 Navigation.registerComponent(`Wallet`, () => Wallet);
 Navigation.registerComponent(`DashBoard`, () => DashBoard);
 Navigation.registerComponent(`Drawer`, () => RNNDrawer.create(Drawer));
+Navigation.registerComponent('Settings', () => Settings);
+Navigation.registerComponent('Profile', () => Profile);
 
 
 export const goToTabs = () => {
@@ -104,4 +108,26 @@ export const goToDrawer = () => {
     }
   });
   RNNDrawer.dismissDrawer();
+}
+
+export const goToDrawerScreen = () => {
+  Navigation.setRoot({
+    root: {
+      stack: {
+        id: 'Drawer',
+        children: [
+          {
+            component: {
+              name: "Settings",
+            }
+          },
+          {
+            component: {
+              name: "Profile",
+            }
+          },
+        ]
+      }
+    }
+  })
 }
