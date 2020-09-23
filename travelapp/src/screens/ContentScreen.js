@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import stringsoflanguages from './stringsoflanguages';
+import stringsoflanguages from './LanguagesStrings';
 export default class second extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
@@ -11,11 +11,11 @@ export default class second extends React.Component {
     var that = this;
     var heading = '';
     if (this.props.navigation.state.params.JSON_Clicked_Item == 'hi') {
-      heading = 'Selected Language Hindi';
+      heading = 'Hindi is the selected Language';
     } else if (
       this.props.navigation.state.params.JSON_Clicked_Item == 'en'
     ) {
-      heading = 'Selected Language English';
+      heading = 'English is the selected Language';
     }
     that.props.navigation.setParams({
       Title: heading,
@@ -24,8 +24,8 @@ export default class second extends React.Component {
   render() {
     return (
       <View style={styles.MainContainer}>
-        <Text style={styles.text}> {stringsoflanguages.first}</Text>
-        <Text style={styles.text}> {stringsoflanguages.second} </Text>
+        <Text style={styles.style}> {stringsoflanguages.first}</Text>
+        <Text style={styles.style}> {stringsoflanguages.second} </Text>
       </View>
     );
   }
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     alignItems: 'center'
   },
-  text: {
+  style: {
     color: '#191919',
     fontSize: 25,
     marginTop: 15

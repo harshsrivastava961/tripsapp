@@ -1,4 +1,3 @@
-import React from 'react';
 import LocalizedStrings from 'react-native-localization';
 
 const strings = new LocalizedStrings({
@@ -7,7 +6,7 @@ const strings = new LocalizedStrings({
     second:"मैं ठीक हूँ ?",
   },
   "en":{
-    first:"How are You ?",
+    first:"How are You?",
     second:"I am fine ",
   }
 });

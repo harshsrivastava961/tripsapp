@@ -9,7 +9,7 @@ const Drawer = (props) => {
       <View style={styles.root}>
        <Text style={styles.Header}>Welcome,</Text>
        <Button
-        title='Settings'
+        title='Setting'
         color='#710ce3'
         onPress={() => Navigation.push(props.componentId, {
           component: {

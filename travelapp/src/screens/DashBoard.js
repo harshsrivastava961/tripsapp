@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     marginBottom: 10
   },
-  drawerStyle: {
+  drawersStyle: {
     padding: 0,
     backgroundColor: '#fff'
   }

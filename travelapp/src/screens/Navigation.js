@@ -56,7 +56,7 @@ export const goToTabs = () => {
               options: {
                 bottomTab: {
                   fontSize: 11,
-                  text: 'Offers',
+                  text: 'Offer',
                   icon: require('../assets/offers.jpg'),                
                 }
               }
@@ -68,7 +68,7 @@ export const goToTabs = () => {
               options: {
                 bottomTab: {
                   fontSize: 11,
-                  text: 'Trip Ideas',
+                  text: 'Trip Idea',
                   icon: require('../assets/tripidea.jpg'),                
                 }
               }

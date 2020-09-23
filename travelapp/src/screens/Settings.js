@@ -18,7 +18,7 @@ export default class Settings extends React.Component {
     return (
       <View style={styles.MainContainer}>
         <View style={{ marginTop: 60 }}>
-          <Text style={styles.textHeading}>
+          <Text style={styles.headingText}>
             Please Select Preferred Language
           </Text>
         </View>
@@ -37,7 +37,7 @@ export default class Settings extends React.Component {
                 style={styles.text}>
                 {item.longform}
               </Text>
-              <View style={styles.saparator} />
+              <View style={styles.saparatorStyle} />
             </View>
           ))}
         </ScrollView>
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     alignItems: 'center'
   },
-  textHeading: {
+  headingText: {
     color: '#191919',
     fontSize: 30,
     textAlign: 'center'
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     color: '#191919',
     fontSize: 25
   },
-  saparator: {
+  saparatorStyle: {
     height: 0.5,
     width: '60%',
     backgroundColor: '#C2C2C2',
