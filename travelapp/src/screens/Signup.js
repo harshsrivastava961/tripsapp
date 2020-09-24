@@ -118,7 +118,7 @@ export default class Signup extends Component {
             }
           }
         })}>
-          Already Registered? Click here to login
+          If Already Registered? Click here to login
         </Text>                          
       </View>
     );

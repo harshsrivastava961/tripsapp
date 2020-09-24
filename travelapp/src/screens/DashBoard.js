@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     flex: 1,
     display: "flex",
     padding: 0,
-    backgroundColor: '#fff'
+    backgroundColor: 'White'
   },
   textStyle: {
     fontSize: 15,
@@ -72,6 +72,6 @@ const styles = StyleSheet.create({
   },
   drawersStyle: {
     padding: 0,
-    backgroundColor: '#fff'
+    backgroundColor: 'white'
   }
 });

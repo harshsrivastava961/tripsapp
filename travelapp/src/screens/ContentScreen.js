@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import stringsoflanguages from './LanguagesStrings';
+import LanguageStrings from './LanguageStrings';
+
 export default class second extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
@@ -24,8 +25,8 @@ export default class second extends React.Component {
   render() {
     return (
       <View style={styles.MainContainer}>
-        <Text style={styles.style}> {stringsoflanguages.first}</Text>
-        <Text style={styles.style}> {stringsoflanguages.second} </Text>
+        <Text style={styles.style}> {LanguageStrings.first}</Text>
+        <Text style={styles.style}> {LanguageStrings.second} </Text>
       </View>
     );
   }

@@ -10,7 +10,7 @@ const Drawer = (props) => {
        <Text style={styles.Header}>Welcome,</Text>
        <Button
         title='Setting'
-        color='#710ce3'
+        color='orange'
         onPress={() => Navigation.push(props.componentId, {
           component: {
             name: 'Settings',
@@ -25,7 +25,7 @@ const Drawer = (props) => {
         })}/>
         <Button
         title='Profile'
-        color='#710ce3'
+        color='orange'
         onPress={() => Navigation.push(props.componentId, {
           component: {
             name: 'Profile',

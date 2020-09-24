@@ -5,7 +5,7 @@ const { View, Text, StyleSheet } = require('react-native');
 const Wallet = () => {
     return (
       <View style={styles.root}>
-        <Text>Wallet Screen</Text>
+        <Text>Welcome to Wallet Screen</Text>
       </View>
     );
   }

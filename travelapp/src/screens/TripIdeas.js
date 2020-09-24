@@ -43,7 +43,7 @@ export default class TripIdeas extends Component {
     return (
       <Image
         source={item.src}
-        style={{width: base_width, height: 250}}
+        style={{width: base_width, height: 251}}
       />
     );
   }

@@ -4,7 +4,7 @@ const { View, Text, StyleSheet } = require('react-native');
 const Profile = () => {
     return (
       <View style={styles.root}>
-        <Text>Profile Screen</Text>
+        <Text>Welcome to Profile Screen</Text>
       </View>
     );
   }

@@ -1,17 +1,31 @@
 import React from 'react';
 import { View, Text, ScrollView, Image, StyleSheet } from 'react-native';
-import stringsoflanguages from './languageStrings';
+import LanguageStrings from './LanguageStrings';
 
 export default class Settings extends React.Component {
   constructor(props) {
+    super(props);
     const lang = [
       { shortform: 'hi', longform: 'Hindi' },
       { shortform: 'en', longform: 'English' },
     ];
     global.lang = lang;
   }
+
   settext(value) {
-    stringsoflanguages.setLanguage(value);
+    LanguageStrings.setLanguage(value);
+    Navigation.push(this.props.componentId, {
+      component: {
+        name: 'ContentScreen',
+        options: {
+          topBar: {
+            title: {
+              text: 'ContentScreen'
+            }
+          }
+        }
+      }
+    })
     this.props.navigation.navigate('ContentScreen' , {JSON_Clicked_Item:value,});
   }
   render() {
@@ -24,7 +38,7 @@ export default class Settings extends React.Component {
         </View>
         <Image
           source={{
-           image: require('../assets/logo.jpg')
+           image: require('../assets/im2.jpg')
           }}
           style={styles.img}
         />
@@ -77,3 +91,4 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 });
+

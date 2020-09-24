@@ -99,7 +99,7 @@ export const goToDrawer = () => {
         direction: "left",
         dismissWhenTouchOutside: true,
         fadeOpacity: 0.7,
-        drawerScreenWidth: "60%" || 445, 
+        drawerScreenWidth: "61%" || 444, 
         drawerScreenHeight: "100%" || 700,
         style: { 
           backgroundColor: "white",

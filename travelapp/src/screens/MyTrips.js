@@ -5,7 +5,7 @@ const place_items = [
   {
     id: 1,
     title: 'Jaipur',
-    summary: 'The city sits as the capital of Rajasthan and a window into India’s mesmerising history.',
+    summary: 'The city sites as capital of Rajasthan and a window into India’s mesmerising history.',
     image: require('../assets/image1.jpg'),
   },
   {
