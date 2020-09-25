@@ -8,7 +8,9 @@ import Wallet from './Wallet';
 import DashBoard from './DashBoard';
 import Drawer from './Drawer';
 import Settings from './Settings';
-import Profile from './Profile'
+import Profile from './Profile';
+import Settings from './ContentScreen';
+import Profile from './LanguageScreen';
 
 Navigation.registerComponent(`MyTrips`, () => MyTrips);
 Navigation.registerComponent(`Offers`, () => Offers);
@@ -16,6 +18,8 @@ Navigation.registerComponent(`TripIdeas`, () => TripIdeas);
 Navigation.registerComponent(`Wallet`, () => Wallet);
 Navigation.registerComponent(`DashBoard`, () => DashBoard);
 Navigation.registerComponent(`Drawer`, () => RNNDrawer.create(Drawer));
+Navigation.registerComponent('Settings', () => Settings);
+Navigation.registerComponent('Profile', () => Profile);
 Navigation.registerComponent('Settings', () => Settings);
 Navigation.registerComponent('Profile', () => Profile);
 

@@ -24,7 +24,7 @@ export default class second extends React.Component {
   }
   render() {
     return (
-      <View style={styles.MainContainer}>
+      <View style={styles.Container}>
         <Text style={styles.style}> {LanguageStrings.first}</Text>
         <Text style={styles.style}> {LanguageStrings.second} </Text>
       </View>
@@ -32,14 +32,14 @@ export default class second extends React.Component {
   }
 }
 const styles = StyleSheet.create({
-  MainContainer: {
+  Container: {
     flex: 1,
     backgroundColor: 'white',
     alignItems: 'center'
   },
   style: {
     color: '#191919',
-    fontSize: 25,
-    marginTop: 15
+    fontSize: 26,
+    marginTop: 14
   },
 });

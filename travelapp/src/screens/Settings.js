@@ -26,7 +26,7 @@ export default class Settings extends React.Component {
         }
       }
     })
-    this.props.navigation.navigate('ContentScreen' , {JSON_Clicked_Item:value,});
+    , {JSON_Clicked_Item:value,};
   }
   render() {
     return (

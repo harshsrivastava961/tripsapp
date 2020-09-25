@@ -6,7 +6,7 @@ const {textStyle, viewStyle} = styles;
 
 return(
     <View style={viewStyle}>
-    <Text style={textStyle}>DashBoard</Text>
+    <Text style={textStyle}>DashBoard screen</Text>
     </View>
 );
 };

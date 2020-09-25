@@ -63,8 +63,8 @@ const Drawer = (props) => {
       backgroundColor: 'white',
     },
      textStyle: {
-          fontSize: 20,
-          paddingTop: 20
+          fontSize: 21,
+          paddingTop: 21
       },
       Header: {
         fontSize: 20,

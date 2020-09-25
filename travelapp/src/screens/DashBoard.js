@@ -67,8 +67,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'White'
   },
   textStyle: {
-    fontSize: 15,
-    marginBottom: 10
+    fontSize: 14,
+    marginBottom: 11
   },
   drawersStyle: {
     padding: 0,
